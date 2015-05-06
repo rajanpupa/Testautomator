@@ -62,7 +62,12 @@ public class LeftTree extends JTree {
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 logger.trace("LeftTree.java: addMouseListener");
-                jTree1MouseReleased(evt);
+                jTree1MouseEventPerformed(evt);
+            }
+            
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                logger.trace("LeftTree.java: addMouseListener");
+                jTree1MouseEventPerformed(evt);
             }
 
         });
@@ -77,7 +82,7 @@ public class LeftTree extends JTree {
     }
 
     // <editor-fold defaultstate="collapsed" desc="MouseReleased PopupEvent Action">
-    private void jTree1MouseReleased(java.awt.event.MouseEvent evt) {
+    private void jTree1MouseEventPerformed(java.awt.event.MouseEvent evt) {
         // TODO addMenu your handling code here:
         if (evt.isPopupTrigger()) {
             popUpTriggerEvent(evt);
