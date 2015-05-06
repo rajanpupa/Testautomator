@@ -1,0 +1,20 @@
+Concept is about building a selenium automation gui, something like Jmeter.
+    - user creates a new project(Test Plan).
+    - add components in the tree, in left panel
+    - properties for each component of the tree in the right panel
+    - The testPlan gets saved in a text file in simple xml or json format.
+    
+    - user can run the test, methods of each component in the tree gets executed.
+    - logs, and results gets saved in text format specified.
+    - Snapshots also gets saved, if option is clicked by the user.
+    
+    - user adds events to the page.
+    - Test is executed based on the sequence the events are present.
+
+Implementation Details.
+    - A simple data structure which is self executable without any GUI.
+    - The top Elements(eg TestPlan, Test) creates a Configuration Parcel to the lower elements(eg page).
+    - based on the properties of the parcel's values as well as its own values, the test is executed.
+    - The Datastructure is kept as simple as possible, and as less data as possible.
+    - The dataStructure is integrated with the UI components
+    - The Ui components interaction , and events handeling is important, which manipulated the actual data structure.

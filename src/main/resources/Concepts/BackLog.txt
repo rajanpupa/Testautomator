@@ -1,0 +1,28 @@
+Things to do
+
+- find element by id            search-capacity     -- done
+- find element by class_name    search-capacity     -- done
+- find element by linkText      search-capacity     -- done
+- find element by xpath         search-capacity     -- done
+- find element by name          search-capacity     -- done
+
+- Support click             action                  -- done
+- Support SendKeys          action                  -- done
+- support hover             action                  -- done
+- support clear             action                  -- done
+
+intregate the search and action to work together    -- done
+
+- integrate them with GUI elements                  -- done
+    - Send keys                                     -- done
+    - click                                         -- done
+    - hover                                         -- done
+    - clear                                         -- done
+
+- Capture capabilities (store certain texts, or values in some variables)
+
+- Test Components(This will significant role in producing result)
+
+- Assert Components(match values between two variables, say fail or pass)
+
+- 

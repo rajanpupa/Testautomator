@@ -1,0 +1,19 @@
+Frame
+First create a frame(baseFrame). Add menubar. Menu Items, click events etc.
+
+Panel
+Create a panel (basePanel). This will be the base pane for the frame. Create a splitpane and add it to the basepane.
+now use the setLeftComponent(), and setRightComponent() methods.
+To set the location of the divider use setDividerLocation(200) method.
+
+Panels
+There will be two panels, controlPanel, and propertyPanel.
+Create two abstract panels, and add all the logic for them as a parent. Other panels will extend these panels and
+call these methods to get their behavior.
+
+How to add a new event node
+- create a event node
+- create a panel extending the property panel
+- write the load and the save methods
+- update Tree helper to add nodes for the new event, update in the renderor as well.
+- LeftTree, write code to display them in the right click action, write add to test element.
