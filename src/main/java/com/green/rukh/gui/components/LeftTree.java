@@ -130,7 +130,47 @@ public class LeftTree extends JTree {
             }
         } else if (object instanceof ARootEvent) {
             // this section is handeled in the Abstract Control Panel
-            //logger.trace("The object selected is of type ArootEvent.");
+        	logger.trace("The object selected is of type ArootEvent.");
+            
+            rootEventRightClickAction(tree, x, y);
+        }
+    }
+    private void rootEventRightClickAction(final JTree tree, int x, int y) {
+    	TreePath path = tree.getPathForLocation(x, y);
+        final DefaultMutableTreeNode node = (DefaultMutableTreeNode) path.getLastPathComponent();
+        final ARootEvent element = (ARootEvent) node.getUserObject();
+
+        JPopupMenu popup = new JPopupMenu();
+
+        //level 1 menus
+        JMenuItem delete = new JMenuItem("Delete");
+        delete.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent ae) {
+                deleteRootEvent(tree, node);
+            }
+
+        });
+
+        popup.add(delete);
+
+        popup.show(tree, x, y);
+    }
+    
+    public void deleteRootEvent(JTree tree, DefaultMutableTreeNode node) {
+    	ARootEvent elem = (ARootEvent) node.getUserObject();
+        DefaultMutableTreeNode parentNode = (DefaultMutableTreeNode) node.getParent();
+        Page parentElem = (Page) parentNode.getUserObject();
+
+        int childNodeIndex = parentNode.getIndex(node);
+        parentElem.remove(childNodeIndex);
+
+        logger.trace("Inside the delete event. Index of selected " + childNodeIndex);
+
+        DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
+
+        if (node.getParent() != null) {
+            model.removeNodeFromParent(node);
         }
     }
 
