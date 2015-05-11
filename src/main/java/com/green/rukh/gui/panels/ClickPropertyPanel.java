@@ -9,6 +9,7 @@ import selenium.automation.treeelements.finders.ByClassnameFinder;
 import selenium.automation.treeelements.finders.ByIdFinder;
 import selenium.automation.treeelements.finders.ByLinktextFinder;
 import selenium.automation.treeelements.finders.ByNameFinder;
+import selenium.automation.treeelements.finders.ByTagNameFinder;
 import selenium.automation.treeelements.finders.ByXpathFinder;
 import selenium.automation.treeelements.finders.IFinder;
 
@@ -134,7 +135,7 @@ public class ClickPropertyPanel extends AbstractPropertyPanel {
 
         finderTypeLabel.setText("Finder Type:");
 
-        comboBoxFinderTypes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ByClassName", "ById", "ByName", "ByLinkText", "ByXPath" }));
+        comboBoxFinderTypes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ByClassName", "ById", "ByName", "ByLinkText", "ByXPath", "ByTagName" }));
         comboBoxFinderTypes.setMinimumSize(new java.awt.Dimension(100, 20));
 
         finderTypePropertyTextField.setText("value");
@@ -257,6 +258,8 @@ public class ClickPropertyPanel extends AbstractPropertyPanel {
                 event.addFinder(new ByLinktextFinder(finderValue));
             }else if(selectedItemIndex == 4){
                 event.addFinder(new ByXpathFinder(finderValue));
+            }else if(selectedItemIndex == 5){
+                event.addFinder(new ByTagNameFinder(finderValue));
             }
         }else if (this.pageObject instanceof HoverEvent) {
             HoverEvent event = (HoverEvent) this.pageObject;

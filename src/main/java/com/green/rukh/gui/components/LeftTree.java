@@ -90,7 +90,6 @@ public class LeftTree extends JTree {
             logger.trace("Not a popup trigger event");
             notPopUpTriggerEvent(evt);
         }
-
     }
 
     private void popUpTriggerEvent(java.awt.event.MouseEvent evt) {

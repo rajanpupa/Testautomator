@@ -6,6 +6,7 @@ import selenium.automation.treeelements.finders.ByClassnameFinder;
 import selenium.automation.treeelements.finders.ByIdFinder;
 import selenium.automation.treeelements.finders.ByLinktextFinder;
 import selenium.automation.treeelements.finders.ByNameFinder;
+import selenium.automation.treeelements.finders.ByTagNameFinder;
 import selenium.automation.treeelements.finders.ByXpathFinder;
 import selenium.automation.treeelements.finders.IFinder;
 
@@ -124,7 +125,7 @@ public class SendKeysPropertyPanel extends AbstractPropertyPanel {
 
         finderTypeLabel.setText("Finder Type:");
 
-        comboBoxFinderTypes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ByClassName", "ById", "ByName", "ByLinkText", "ByXPath" }));
+        comboBoxFinderTypes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ByClassName", "ById", "ByName", "ByLinkText", "ByXPath", "ByTagName" }));
         comboBoxFinderTypes.setMinimumSize(new java.awt.Dimension(100, 20));
 
         finderTypePropertyTextField.setText("value");
@@ -228,7 +229,7 @@ public class SendKeysPropertyPanel extends AbstractPropertyPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         if (this.pageObject == null) {
-            System.out.println("The page object is null. snapshotPropertyPanel.java 115");
+            System.out.println("The page object is null. snapshotPropertyPanel.java 231");
         }
         this.pageObject.setProperty(this.key, this.textToInputTextField.getText());
         this.pageObject.setProperty("name", this.nameTextField.getText());
@@ -251,6 +252,8 @@ public class SendKeysPropertyPanel extends AbstractPropertyPanel {
                 event.addFinder(new ByLinktextFinder(finderValue));
             }else if(selectedItemIndex == 4){
                 event.addFinder(new ByXpathFinder(finderValue));
+            }else if(selectedItemIndex == 5){
+            	 event.addFinder(new ByTagNameFinder(finderValue));
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
